@@ -11,28 +11,6 @@ tree_ring <- read_csv("tidytuesday:2020:2020-05-12:volcano/tree_rings.csv")
 volcanos <- read_csv("tidytuesday:2020:2020-05-12:volcano/volcano.csv")
 
 
-# Basic map of eruptions
-ggplot(data = eruptions, aes(x = longitude, y = latitude, color = vei)) +
-  borders("world", colour = "gray80", fill = "gray95") +
-  geom_point(size = 3, alpha = 0.7) +
-  scale_color_gradient(low = "blue", high = "red", na.value = "gray50") +
-  theme_minimal() +
-  labs(title = "Volcano Eruptions by VEI",
-    x = "Longitude",
-    y = "Latitude",
-    color = "VEI")
-
-
-
-# n_tree와 europe_temp_index 간의 산점도
-ggplot(tree_ring, aes(x = n_tree, y = europe_temp_index)) +
-  geom_point(size=1,stroke=1, color = "grey40") +  # 산점도 추가
-  geom_smooth(method = "lm", color = "red") + # 선형 회귀선 추가
-  ggtitle(paste("Correlation between n_tree and Europe Temp Index"))+
-  theme_minimal() +
-  xlab("Number of Trees (n_tree)") +
-  ylab("Europe Temperature Index (europe_temp_index)")
-
 
 # eruption events 중에 기온 지표에 영향을 줄 수 있는 화산활동을 확인
 str(events$event_type)
