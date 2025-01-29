@@ -11,7 +11,7 @@ tree_ring <- read_csv("tidytuesday:2020:2020-05-12:volcano/tree_rings.csv")
 volcanos <- read_csv("tidytuesday:2020:2020-05-12:volcano/volcano.csv")
 
 
-# Basic map of eruptions over time
+# Basic map of eruptions
 
 ggplot(data = eruptions, aes(x = longitude, y = latitude, color = vei)) +
   borders("world", colour = "gray80", fill = "gray95") +
