@@ -13,12 +13,27 @@ volcanos <- read_csv("tidytuesday:2020:2020-05-12:volcano/volcano.csv")
 
 # Basic map of eruptions
 
-ggplot(data = eruptions, aes(x = longitude, y = latitude, color = vei)) +
+ggplot(data = eruptions %>% filter(!is.na(vei)), aes(x = longitude, y = latitude, color = vei)) +
   borders("world", colour = "gray80", fill = "gray95") +
-  geom_point(size = 3, alpha = 0.7) +
-  scale_color_gradient(low = "blue", high = "red", na.value = "gray50") +
+  geom_point(size = 2, alpha = 0.5) +  # NA 값이 이미 제거된 상태
+  scale_color_gradient(low = "blue", high = "red") +
   theme_minimal() +
-  labs(title = "Volcano Eruptions by VEI",
+  labs(title = "Map of Volcano Eruptions with VEI Scale",
        x = "Longitude",
        y = "Latitude",
        color = "VEI")
+
+
+# Map of eruptions 1800s onwards
+
+ggplot(data = eruptions %>% 
+         filter(!is.na(vei), start_year >= 1800), aes(x = longitude, y = latitude, color = vei)) +
+  borders("world", colour = "gray80", fill = "gray95") +
+  geom_point(size = 2, alpha = 0.5) +  # NA 값이 이미 제거된 상태
+  scale_color_gradient(low = "blue", high = "red") +
+  theme_minimal() +
+  labs(title = "Volcano Eruptions (1800s onwards) with VEI Scale",
+       x = "Longitude",
+       y = "Latitude",
+       color = "VEI")
+
