@@ -8,7 +8,7 @@ library(readr)
 # 1. Load datasets
 eruptions <- read_csv("tidytuesday:2020:2020-05-12:volcano/eruptions.csv") # eruptions data
 events <- read_csv("tidytuesday:2020:2020-05-12:volcano/events.csv") # events data
-tree_ring <- read_csv("tidytuesday:2020:2020-05-12:volcano/tree_rings.csv") # tree_ring data
+env_impact <- read_csv("tidytuesday:2020:2020-05-12:volcano/tree_rings.csv") # tree_ring data
 
 
 # 2. Select relevant columns (start_year and vei)
@@ -18,12 +18,12 @@ eruptions_vei <- eruptions %>%
 
 # 3. VEI 값을 tree_ring 데이터셋에 추가
 # Merge tree_ring data with eruptions data based on year
-tree_ring_vei <- tree_ring %>%
+env_impact_vei <- env_impact %>%
   inner_join(eruptions_vei, by = c("year" = "start_year"))
 
 # 4. VEI 카테고리 추가
 # Categorize VEI values into specific categories
-tree_ring_vei <- tree_ring_vei %>%
+env_impact_vei <- env_impact_vei %>%
   mutate(vei_category = case_when(
     vei >= 5 ~ "VEI >= 5",  # VEI >= 5
     vei >= 3 ~ "VEI 3-4",    # VEI 3-4
@@ -33,7 +33,7 @@ tree_ring_vei <- tree_ring_vei %>%
 
 # 5. VEI 카테고리별 Europe Temperature Index 평균 계산
 # Calculate the average Europe Temperature Index for each VEI category
-vei_temp_index <- tree_ring_vei %>%
+vei_temp_index <- env_impact_vei %>%
   group_by(vei_category) %>%
   summarise(avg_temp_index = mean(europe_temp_index, na.rm = TRUE))
 
@@ -111,11 +111,11 @@ ggplot(tree_ring_vei_1800, aes(x = year, y = europe_temp_index, color = vei_cate
 # VEI Intensity vs Europe Temperature Index (Scaled)
 
 # 1. Filter data for years after 1800
-tree_ring_vei_1800 <- tree_ring_vei %>%
+env_impact_vei_1800 <- env_impact_vei %>%
   filter(year >= 1800)
 
 # 2. Add VEI category based on VEI values
-tree_ring_vei_1800 <- tree_ring_vei_1800 %>%
+env_impact_vei_1800 <- env_impact_vei_1800 %>%
   mutate(vei_category = case_when(
     vei >= 5 ~ "VEI >= 5",          # Category for VEI >= 5
     vei >= 3 ~ "VEI 3-4",           # Category for VEI 3-4
@@ -124,7 +124,7 @@ tree_ring_vei_1800 <- tree_ring_vei_1800 %>%
   ))
 
 # 3. Calculate VEI intensity based on the count of events per year and category
-vei_intensity <- tree_ring_vei_1800 %>%
+vei_intensity <- env_impact_vei_1800 %>%
   group_by(year, vei_category) %>%
   summarise(vei_count = n()) %>%
   mutate(vei_intensity_value = case_when(
@@ -140,7 +140,7 @@ vei_intensity_total <- vei_intensity %>%
   summarise(total_intensity = sum(vei_intensity_value, na.rm = TRUE))
 
 # 5. Join VEI intensity data with Europe Temperature Index by year
-vei_temp_joined <- left_join(vei_intensity_total, tree_ring_vei_1800, by = "year")
+vei_temp_joined <- left_join(vei_intensity_total, env_impact_vei_1800, by = "year")
 
 # 6. Calculate the correlation between VEI intensity and Europe Temperature Index
 correlation_result <- cor(vei_temp_joined$total_intensity, vei_temp_joined$europe_temp_index, use = "complete.obs")
@@ -167,7 +167,6 @@ ggplot(vei_temp_joined, aes(x = year)) +
     color = "Legend (scaled by 100,000)"  # Color legend title
   ) +
   theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
     legend.position = "top"  # Move legend to the top
   )

@@ -1,4 +1,6 @@
 
+# Install revealjs package if not installed
+install.packages("revealjs")
 
 # Load packages
 
