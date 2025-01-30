@@ -37,6 +37,9 @@ vei_temp_index <- tree_ring_vei %>%
   group_by(vei_category) %>%
   summarise(avg_temp_index = mean(europe_temp_index, na.rm = TRUE))
 
+# Check the summary of the calculated averages
+vei_temp_index
+
 # 6. VEI 카테고리별 Europe Temperature Index 시각화
 # Visualize the average Europe Temperature Index by VEI category using a bar chart
 ggplot(vei_temp_index, aes(x = vei_category, y = avg_temp_index, fill = vei_category)) +

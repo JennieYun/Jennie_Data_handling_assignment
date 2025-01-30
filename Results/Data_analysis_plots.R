@@ -11,12 +11,10 @@ tree_ring <- read_csv("tidytuesday:2020:2020-05-12:volcano/tree_rings.csv")
 volcanos <- read_csv("tidytuesday:2020:2020-05-12:volcano/volcano.csv")
 
 
-
 # eruption events 중에 기온 지표에 영향을 줄 수 있는 화산활동을 확인
 str(events$event_type)
 weather_affect_event <- unique(events$event_type)
 print(weather_affect_event)
-
 
 
 # 유럽 지역의 위도와 경도 범위 설정
@@ -66,47 +64,47 @@ avg_temp_impact_all
 
 
 
-##### VEI 값별로 기온 변화량의 평균을 계산하고, 이를 바탕으로 화산 활동의 영향을 비교
-
-# 1. 모든 지역의 화산 활동 데이터에서 VEI 값을 포함한 데이터 가져오기
-# eruptions 데이터셋에서 VEI 값 포함한 데이터 가져오기
-events_vei <- eruptions  # eruptions 데이터셋 사용
-
-# 2. tree_ring 데이터에서 기온 변화량 계산 (현재 연도 - 이전 연도)
-tree_ring <- tree_ring %>%
-  arrange(year) %>%
-  mutate(temp_change = europe_temp_index - lag(europe_temp_index))  # 기온 변화량 계산
-
-# 3. tree_ring 데이터와 eruptions 데이터셋 결합 (year와 eruption_start_year 기준으로)
-tree_ring_vei <- tree_ring %>%
-  inner_join(events_vei, by = c("year" = "start_year")) %>%
-  filter(!is.na(vei))  # VEI가 NA가 아닌 경우만 포함
-
-# 결합된 데이터 확인
-View(tree_ring_vei)
-
-
-# 4. VEI 값에 따라 기온 변화량 계산
-# VEI 값에 따른 카테고리 분류
-tree_ring_vei <- tree_ring_vei %>%
-  mutate(vei_category = case_when(
-    vei >= 5 ~ "VEI >= 5",
-    vei >= 3 ~ "VEI 3-4",
-    vei >= 1 ~ "VEI 1-2",
-    TRUE ~ "No VEI"  # VEI 값이 없는 경우 처리
-  ))
-
-# 5. VEI 카테고리별 기온 변화량 평균 계산
-vei_temp_change <- tree_ring_vei %>%
-  group_by(vei_category) %>%
-  summarise(avg_temp_change = mean(temp_change, na.rm = TRUE))
-
-# 6. 기온 변화량 시각화 (VEI 카테고리별)
-library(ggplot2)
-ggplot(vei_temp_change, aes(x = vei_category, y = avg_temp_change, fill = vei_category)) +
-  geom_bar(stat = "identity", show.legend = FALSE) +
-  labs(title = "Average Temperature Change by VEI Category", x = "VEI Category", y = "Average Temperature Change (°C)") +
-  theme_minimal()
+# ##### VEI 값별로 기온 변화량의 평균을 계산하고, 이를 바탕으로 화산 활동의 영향을 비교
+# 
+# # 1. 모든 지역의 화산 활동 데이터에서 VEI 값을 포함한 데이터 가져오기
+# # eruptions 데이터셋에서 VEI 값 포함한 데이터 가져오기
+# events_vei <- eruptions  # eruptions 데이터셋 사용
+# 
+# # 2. tree_ring 데이터에서 기온 변화량 계산 (현재 연도 - 이전 연도)
+# tree_ring <- tree_ring %>%
+#   arrange(year) %>%
+#   mutate(temp_change = europe_temp_index - lag(europe_temp_index))  # 기온 변화량 계산
+# 
+# # 3. tree_ring 데이터와 eruptions 데이터셋 결합 (year와 eruption_start_year 기준으로)
+# tree_ring_vei <- tree_ring %>%
+#   inner_join(events_vei, by = c("year" = "start_year")) %>%
+#   filter(!is.na(vei))  # VEI가 NA가 아닌 경우만 포함
+# 
+# # 결합된 데이터 확인
+# View(tree_ring_vei)
+# 
+# 
+# # 4. VEI 값에 따라 기온 변화량 계산
+# # VEI 값에 따른 카테고리 분류
+# tree_ring_vei <- tree_ring_vei %>%
+#   mutate(vei_category = case_when(
+#     vei >= 5 ~ "VEI >= 5",
+#     vei >= 3 ~ "VEI 3-4",
+#     vei >= 1 ~ "VEI 1-2",
+#     TRUE ~ "No VEI"  # VEI 값이 없는 경우 처리
+#   ))
+# 
+# # 5. VEI 카테고리별 기온 변화량 평균 계산
+# vei_temp_change <- tree_ring_vei %>%
+#   group_by(vei_category) %>%
+#   summarise(avg_temp_change = mean(temp_change, na.rm = TRUE))
+# 
+# # 6. 기온 변화량 시각화 (VEI 카테고리별)
+# library(ggplot2)
+# ggplot(vei_temp_change, aes(x = vei_category, y = avg_temp_change, fill = vei_category)) +
+#   geom_bar(stat = "identity", show.legend = FALSE) +
+#   labs(title = "Average Temperature Change by VEI Category", x = "VEI Category", y = "Average Temperature Change (°C)") +
+#   theme_minimal()
 
 
 
