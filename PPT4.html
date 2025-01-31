@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="PPT2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="PPT2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="PPT2_files/libs/quarto-html/popper.min.js"></script>
-<script src="PPT2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="PPT2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="PPT2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="PPT2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="PPT2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="PPT4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="PPT4_files/libs/quarto-html/tabby.min.js"></script>
+<script src="PPT4_files/libs/quarto-html/popper.min.js"></script>
+<script src="PPT4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="PPT4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="PPT4_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="PPT4_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="PPT4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Jeongyeon Yun (Jennie)">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="PPT2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="PPT2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="PPT4_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="PPT4_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,11 +95,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="PPT2_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="PPT2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="PPT2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="PPT2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="PPT2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="PPT4_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="PPT4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="PPT4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="PPT4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="PPT4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -404,55 +404,92 @@
 </section>
 <section id="project-overview" class="slide level2">
 <h2>Project Overview</h2>
-<p>This study explores the relationship between volcanic eruptions, represented by the Volcanic Explosivity Index (VEI), and their environmental impact. The data is provided by TidyTuesday.</p>
+<p>This project explores the relationship between volcanic eruptions, represented by the Volcanic Explosivity Index (VEI), and their environmental impact.</p>
+<p>The dataset is sourced from TidyTuesday.</p>
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/0/01/VEIfigure_en.svg" class="r-stretch quarto-figure-center"><p class="caption">VEI-Wikipedia</p><aside class="notes">
+<p>In this presentation, I’ll show you how I used different visualization techniques to transformed the data and visualize the relationship between volcanic eruptions, described as their Volcanic Explosivity Index (VEI), and their environmental impacts. To provide context, I’ll briefly explain the dataset, but the main focus will be on the methods I used to effectively represent the data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-overview" class="slide level2">
 <h2>Data Overview</h2>
-<p>The analysis uses the following datasets and key variables:</p>
-<ul>
-<li><strong>Eruptions:</strong> Contains eruption years, locations (latitude, longitude), and VEI values (Volcanic Explosivity Index (0 to 8 scale))</li>
-<li><strong>Env_impact:</strong> Records environmental data, including the Europe Temperature Index (°C, relative to 1961–1990) and n_tree (Tree ring z-scores (relative to 1000–1099))</li>
-</ul>
+<p>The analysis uses the following datasets and key variables</p>
+<p><strong>Eruptions</strong></p>
+<p>Variables: Eruption year, location (latitude, longitude), VEI (scale: 0 to 8)</p>
+<p><strong>env_impact</strong></p>
+<p>Europe Temperature Index (°C, relative to 1961–1990 baseline) Tree ring z-scores (relative to 1000–1099)</p>
+<aside class="notes">
+<p>The dataset is sourced from TidyTuesday.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="vei-wikipedia" class="slide level2">
-<h2><img data-src="https://upload.wikimedia.org/wikipedia/commons/0/01/VEIfigure_en.svg" alt="VEI-Wikipedia"></h2>
+<section id="dataset-quality" class="slide level2">
+<h2>Dataset quality</h2>
+<p>The dataset appears to be organized in a tidy format, which facilitates analysis. However, due to differences in observation periods and units across the datasets, some data preprocessing was necessary to ensure compatibility for time series</p>
 </section>
 <section id="mapping-spatial-distribution-of-volcano-eruptions-by-vei" class="slide level2">
 <h2><span class="r-fit-text">Mapping: Spatial Distribution of volcano eruptions by VEI</span></h2>
-<ul>
-<li>Map VEI values across the globe</li>
-</ul>
+<p>The map highlights regions with varying levels of volcanic intensity, with a color-gradient representing different VEI values</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> eruptions <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vei)), <span class="fu">aes</span>(<span class="at">x =</span> longitude, <span class="at">y =</span> latitude, <span class="at">color =</span> vei)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">borders</span>(<span class="st">"world"</span>, <span class="at">colour =</span> <span class="st">"gray80"</span>, <span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb1-4"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb1-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Map of Volcano Eruptions with VEI Scale"</span>,</span>
-<span id="cb1-7"><a href=""></a>    <span class="at">x =</span> <span class="st">"Longitude"</span>,</span>
-<span id="cb1-8"><a href=""></a>    <span class="at">y =</span> <span class="st">"Latitude"</span>,</span>
-<span id="cb1-9"><a href=""></a>    <span class="at">color =</span> <span class="st">"VEI"</span>) <span class="sc">+</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-11"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>, <span class="at">face =</span> <span class="st">"bold"</span>)  <span class="co"># Increase title size</span></span>
-<span id="cb1-12"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Creating a map to show the spatial distribution of volcano eruptions by VEI</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> eruptions <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vei)), <span class="fu">aes</span>(<span class="at">x =</span> longitude, <span class="at">y =</span> latitude, <span class="at">color =</span> vei)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">borders</span>(<span class="st">"world"</span>, <span class="at">colour =</span> <span class="st">"gray80"</span>, <span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span>  <span class="co"># Add a world map with gray borders and light background</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot eruption points after creating the border</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>) <span class="sc">+</span>  <span class="co"># Color scale: Blue for low VEI, red for high VEI</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co"># Minimalist theme for a clean look</span></span>
+<span id="cb1-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Map of Volcano Eruptions with VEI Scale"</span>,  <span class="co"># Title of the plot</span></span>
+<span id="cb1-8"><a href=""></a>       <span class="at">x =</span> <span class="st">"Longitude"</span>,  <span class="co"># Label for the x-axis</span></span>
+<span id="cb1-9"><a href=""></a>       <span class="at">y =</span> <span class="st">"Latitude"</span>,  <span class="co"># Label for the y-axis</span></span>
+<span id="cb1-10"><a href=""></a>       <span class="at">color =</span> <span class="st">"VEI"</span>) <span class="sc">+</span>  <span class="co"># Label for the color scale</span></span>
+<span id="cb1-11"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="co"># Increase title size for better visibility</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="PPT2_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<img data-src="PPT4_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><aside class="notes">
+<p>For the first visualization, I created a map to display the spatial distribution of volcanic eruptions based on their VEI values. A world map serves as the base layer, with eruption locations marked by color-coded points. This visualization was created using ggplot2 in R. I used the borders() to outline the world map and geom_point() function for the eruption points. A gradient color scale was applied to enhance the understanding of global volcanic activity patterns. Smaller eruptions are represented in blue, while larger eruptions appear in red, making it easy to interpret the global distribution of eruption sizes at a glance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="correlation-tree-ring-z-score-vs.-europe-temperature-index" class="slide level2">
 <h2><span class="r-fit-text">Correlation: Tree ring z-score vs.&nbsp;Europe Temperature Index</span></h2>
-<ul>
-<li>Visualize the relationship between the Tree ring z-scores and the Europe Temperature Index</li>
-</ul>
+<p>Visualize the relationship between the Tree ring z-scores and the Europe Temperature Index</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(env_impact, <span class="fu">aes</span>(<span class="at">x =</span> n_tree, <span class="at">y =</span> europe_temp_index)) <span class="sc">+</span> </span>
-<span id="cb2-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">stroke =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">stroke =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span>  <span class="co"># Create scatter plot with data points, stroke to 0.8 (border thickness)</span></span>
 <span id="cb2-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb2-4"><a href=""></a>  <span class="fu">stat_cor</span>(<span class="fu">aes</span>(<span class="at">label =</span> ..r.label..), <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href=""></a>  <span class="fu">stat_cor</span>(<span class="fu">aes</span>(<span class="at">label =</span> ..r.label..), <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="co"># Add Pearson correlation coefficient on the plot</span></span>
 <span id="cb2-5"><a href=""></a>  <span class="fu">ggtitle</span>(<span class="st">"Correlation Between Tree Ring Z-Scores and Europe Temperature Index"</span>) <span class="sc">+</span></span>
 <span id="cb2-6"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb2-7"><a href=""></a>  <span class="fu">xlab</span>(<span class="st">"Tree Ring Z-Scores"</span>) <span class="sc">+</span></span>
@@ -463,55 +500,132 @@
 </details>
 
 </div>
-<img data-src="PPT2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="multiplots-how-volcanic-eruptions-with-based-on-vei-intensity-affect-europe-temperature" class="slide level2">
-<h2><span class="r-fit-text">Multiplots: How volcanic eruptions with based on VEI intensity affect Europe temperature</span></h2>
-<p>To investigate how volcanic eruptions, categorized by their Volcanic Explosivity Index (VEI), impact the Europe Temperature Index (ETI) in the same year, I visualized the data in two separate plots</p>
+<img data-src="PPT4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><aside class="notes">
+<p>To examine whether tree ring z-scores and the Europe Temperature Index exhibit similar trends and results in the same year as volcanic activity, I created a correlation graph. This visualization helps assess the immediate environmental impacts of volcanic eruptions. Using geom_point() in R, I plotted individual data points to show the relationship between the two variables. A trend line was added with geom_smooth() to highlight the overall pattern. Additionally, I included the Pearson correlation coefficient using stat_cor() to provide a quantitative measure of the relationship. This approach offers both a clear visual representation and a statistical summary to support the analysis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="multiplots-comparing-the-impact-of-vei-on-europe-temperature-over-time" class="slide level2">
+<h2>Multiplots: Comparing the Impact of VEI on Europe Temperature Over Time</h2>
+<p>Visualize the data in two separate plots to investigate how volcanic eruptions categorized by their Volcanic Explosivity Index (VEI), impact the Europe Temperature Index (ETI) in the same year</p>
+<aside class="notes">
+<p>For the final visualizations, I compared the effects of VEI categories on the Europe Temperature Index over time, using two complementary plots.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
 
-<img data-src="PPT2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="PPT4_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><aside class="notes">
+<p>First plot: I grouped eruptions by VEI category, calculated the average Europe Temperature Index for each group, and displayed this data in a bar chart. To enhance clarity, I added text labels showing the exact averages on top of each bar. Second plot: I combined VEI intensity over time and the Europe Temperature Index into a dual-axis plot. The bar chart represents VEI intensity, while the line chart overlays temperature changes. This method allows for a more dynamic comparison of eruption intensity and temperature variations in a single visualization. Both plots were carefully designed using ggplot2 to ensure they conveyed the data story effectively and clearly.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Combine the plots with adjusted spacing</span></span>
-<span id="cb3-2"><a href=""></a>plot1 <span class="sc">+</span> plot2 <span class="sc">+</span> </span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'a'</span>,</span>
-<span id="cb3-4"><a href=""></a>                <span class="at">title =</span> <span class="st">"VEI intensity effect on Europe temperature"</span>,</span>
-<span id="cb3-5"><a href=""></a>                <span class="at">subtitle =</span> <span class="st">"a:Average ETI by VEI category b:VEI and ETI over time"</span>)<span class="sc">+</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">11</span>)) <span class="sc">+</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>, </span>
-<span id="cb3-8"><a href=""></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span><span class="dv">11</span>),</span>
-<span id="cb3-9"><a href=""></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>),</span>
-<span id="cb3-10"><a href=""></a>        <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">'cm'</span>),</span>
-<span id="cb3-11"><a href=""></a>        <span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">face =</span> <span class="st">'bold'</span>),</span>
-<span id="cb3-12"><a href=""></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">25</span>, <span class="at">face =</span> <span class="st">'bold'</span>),  <span class="co"># Increase title size</span></span>
-<span id="cb3-13"><a href=""></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Show the code in the slide</span></span>
+<span id="cb3-2"><a href=""></a>plot1 <span class="sc">+</span> plot2 <span class="sc">+</span>  <span class="co"># Combine plot1 and plot2</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'a'</span>,  <span class="co"># Use 'a' for labeling plot tags</span></span>
+<span id="cb3-4"><a href=""></a>                <span class="at">title =</span> <span class="st">"VEI intensity effect on Europe temperature"</span>,  </span>
+<span id="cb3-5"><a href=""></a>                <span class="at">subtitle =</span> <span class="st">"a: Average ETI by VEI category b: VEI and ETI over time"</span>) <span class="sc">+</span> </span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">11</span>)) <span class="sc">+</span>  <span class="co"># Adjust the relative widths of plot1 and plot2</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-8"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,  </span>
+<span id="cb3-9"><a href=""></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb3-10"><a href=""></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),  </span>
+<span id="cb3-11"><a href=""></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">'cm'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Plot 2: VEI Intensity and Europe Temperature Index Over Time</span></span>
+<span id="cb4-2"><a href=""></a><span class="co"># Calculate VEI intensity by year</span></span>
+<span id="cb4-3"><a href=""></a>vei_intensity <span class="ot">&lt;-</span> env_impact_vei <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">group_by</span>(year, vei_category) <span class="sc">%&gt;%</span>  <span class="co"># Group data by year and VEI category</span></span>
+<span id="cb4-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">vei_count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span>  <span class="co"># Count the number of eruptions per each category</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">vei_intensity_value =</span> <span class="fu">case_when</span>(  <span class="co"># Assign scaled intensity values based on VEI category</span></span>
+<span id="cb4-7"><a href=""></a>    vei_category <span class="sc">==</span> <span class="st">"VEI &gt;= 5"</span> <span class="sc">~</span> vei_count <span class="sc">*</span> <span class="dv">10000</span>,  <span class="co"># Large eruptions have a high intensity</span></span>
+<span id="cb4-8"><a href=""></a>    vei_category <span class="sc">==</span> <span class="st">"VEI 3-4"</span> <span class="sc">~</span> vei_count <span class="sc">*</span> <span class="dv">100</span>,     <span class="co"># Moderate eruptions</span></span>
+<span id="cb4-9"><a href=""></a>    vei_category <span class="sc">==</span> <span class="st">"VEI 1-2"</span> <span class="sc">~</span> vei_count <span class="sc">*</span> <span class="dv">1</span>,       <span class="co"># Small eruptions</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span></span>
+<span id="cb4-11"><a href=""></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reflection" class="slide level2">
+<h2>Reflection</h2>
+<h3 id="lessons-learned">Lessons Learned</h3>
+<ol type="1">
+<li>Despite basic knowledge of R, creating publication-quality plots was challenging due to limited resources for reference</li>
+<li>Learned tidy data techniques, R functions, and tools like Quarto and GitHub for better project management and visualization</li>
+</ol>
+<h3 id="challenges-faced">Challenges Faced</h3>
+<ol type="1">
+<li>Color Choices and Accessibility: Overlooked accessibility for colorblind users, leading to the overuse of red and green</li>
+<li>Data Preparation: Faced difficulties in transforming or merging datasets to make them suitable for visualization</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="thank-you-questions" class="title-slide slide level1 center">
+<h1>Thank you! Questions?</h1>
+
+</section>
+<section class="slide level2">
+
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="PPT2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="PPT4_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="PPT2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="PPT2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="PPT2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="PPT4_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
